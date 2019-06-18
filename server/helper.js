@@ -9,6 +9,7 @@ mongo.connect(url,{ useNewUrlParser: true}, (err, client) => {
       return
     } else {
         db = client.db('morelooks')
+        console.log('connected database')
     }
   })
 

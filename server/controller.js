@@ -54,7 +54,10 @@ const controller = {
     let trend = Math.floor((new Date()).getHours()/24*499900);
     let randomNum = 9500000 + trend + Math.floor(Math.random()*100);
     dbhelpers.get('purses',randomNum)
-      .then(data => res.status(200).send(data))
+      .then(data => {
+        console.log('data: ', data)
+        res.status(200).send(data)
+      })
       .catch(err => res.status(404).send(err))
   },
   getshoes: (req, res) => {
