@@ -63,6 +63,16 @@ const controller = {
     let randomNum = 9500000 + trend + Math.floor(Math.random()*100);
     const shoesRedisKey = `shoes${randomNum}`
     client.get(shoesRedisKey, (err, shoes)=>{
+      //----------------
+      // if (err){
+      //   dbhelpers.get('shoe', randomNum)
+      //   .then(data => {
+      //     client.setex(shoesRedisKey, 60, JSON.stringify(data))
+      //     res.status(200).send(data)
+      //   })
+      //   .catch(err => res.status(404).send(err))
+      // }
+      //-----------------
       if (shoes){
         res.status(200).send(JSON.parse(shoes))
       } else {
